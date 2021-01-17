@@ -14,9 +14,9 @@ namespace IotHubHost.Hubs
             await Groups.AddToGroupAsync(Context.ConnectionId, areaName);
         }
 
-        public async Task BroadcastPlaybackStatus(string areaName, bool working)
+        public async Task BroadcastWorkStatus(string areaName, bool working)
         {
-            await Clients.Groups(areaName).SendAsync("BroadcastWorkStatus", working);
+            await Clients.Groups(areaName).SendAsync("ReceiveWorkStatus", working);
         }
 
         public override async Task OnDisconnectedAsync(Exception exception)
